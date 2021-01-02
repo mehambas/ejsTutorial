@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <script src="https://kit.fontawesome.com/d4408de37a.js" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid rounded-3">
+            <a class="navbar-brand" href="#">Kithub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Bestseller
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container mt-5 p-3 bg-dark">
+        <div class="card mb-3" style="width: 100%; min-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src=" <%= img %> "
+                        alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h1 class="card-title"> <%= kitapIsmi %>  </h1>
+                        <p class="card-text"><small class="text-muted"> <%= yazar %>  </small></p>
+                        <p class="card-text"><small class="text-muted"> <%= yayinevi %>  </small></p>
+                        <p class="card-text"> <%= aciklama %>  </p>
+                        <p class="card-text">Yayin Tarihi: <small class="text-muted"><%= yayinTarihi %>  </small></p>
+                        <p class="card-text">Baski Sayisi: <small class="text-muted"> <%= baskiSayisi %>  </small></p>
+                        <p class="card-text">Dil: <small class="text-muted"> <%= dil %>  </small></p>
+                        <p class="card-text">Sayfa Sayisi:<small class="text-muted"> <%= sayfaSayisi %>  </small></p>
+                        <p class="card-text">Cilt Tipi: <small class="text-muted"> <%= ciltTipi %>  </small></p>
+                        <p class="card-text">Fiyat:  <%= fiyat %>  </p>
+                        <a href=" <%= anaSayfa %>  "> Return Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+body{
+    background-color: #eee !important;
+}
+
+img{
+    width: 90%;
+}
+
+.card-body a{
+    color: #eee;
+    background-color: #464747;
+    padding: 6px 12px;
+    border-radius: 15px;
+}
+
+.card-body a:hover{
+    text-decoration: none !important;
+    opacity: 0.8;
+    color: #fff;
+
+}
