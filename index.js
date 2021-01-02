@@ -3,17 +3,11 @@ const app = express();
 app.set('view engine', 'ejs');
 
 
-app.use(express.static("css"));
-
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
-});
+app.use(express.static(__dirname + "/files"));
 
 
-
-app.get('/kitap1', function (req, res) {
-
-    var kitap1 = {
+var kitaplar = [
+    {
         img: 'https://www.panamayayincilik.com/images/urunler/Insan-Ne-Ile-Yasar-resim-346.jpg',
         kitapIsmi: 'Insan Ne ile Yasar',
         yazar: 'Lev N. Tolstoy',
@@ -22,19 +16,14 @@ app.get('/kitap1', function (req, res) {
         yayinTarihi: '2016-07-15',
         baskiSayisi: '10',
         dil: 'TÜRKÇE',
-        sayfaSayisi:' 88',
+        sayfaSayisi: ' 88',
         ciltTipi: 'Karton Kapak',
         fiyat: '15 TL',
-        anaSayfa : 'http://localhost:8000/'
-    }
+        anaSayfa: '/',
+        index: 0
+    },
 
-
-    res.render('kitap', kitap1)
-});
-
-app.get('/kitap2', function (req, res) {
-
-    var kitap2 = {
+    {
         img: 'https://tse2.mm.bing.net/th?id=OIP.mXusyVCAJs8r6_PXmzYV8gHaLs&pid=Api&P=0&w=300&h=300',
         kitapIsmi: 'Hayvanlar Çiftliği',
         yazar: 'George Orwell',
@@ -43,15 +32,56 @@ app.get('/kitap2', function (req, res) {
         yayinTarihi: '2000-11-29',
         baskiSayisi: '4',
         dil: 'TÜRKÇE',
-        sayfaSayisi:' 125',
+        sayfaSayisi: ' 125',
         ciltTipi: 'Karton Kapak',
         fiyat: '13 TL',
-        anaSayfa : 'http://localhost:8000/'
+        anaSayfa: '/',
+        index: 1
     }
 
+    
+];
 
-    res.render('kitap', kitap2)
+
+app.get('/', function (req, res) {
+    res.render('anasayfa', {kitaplarListe : kitaplar});
 });
+
+
+
+app.get('/kitap/:isim/:index', function (req, res) {
+    var indexDegeri = req.params.index;
+
+    var kitapIsmi = kitaplar[indexDegeri].kitapIsmi;
+    var img = kitaplar[indexDegeri].img;
+    var yazar = kitaplar[indexDegeri].yazar;
+    var yayinevi = kitaplar[indexDegeri].yayinevi;
+    var aciklama = kitaplar[indexDegeri].aciklama;
+    var yayinTarihi = kitaplar[indexDegeri].yayinTarihi;
+    var baskiSayisi = kitaplar[indexDegeri].baskiSayisi;
+    var dil = kitaplar[indexDegeri].dil;
+    var sayfaSayisi = kitaplar[indexDegeri].sayfaSayisi;
+    var ciltTipi = kitaplar[indexDegeri].ciltTipi;
+    var fiyat = kitaplar[indexDegeri].fiyat;
+    var anaSayfa = kitaplar[indexDegeri].anaSayfa;
+
+
+    res.render('kitap', {
+        kitapIsmi,
+        yazar,
+        yayinevi,
+        aciklama,
+        yayinTarihi,
+        baskiSayisi,
+        dil,
+        sayfaSayisi,
+        ciltTipi,
+        fiyat,
+        anaSayfa,
+        img
+    });
+});
+
 
 
 
